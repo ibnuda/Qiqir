@@ -10,4 +10,6 @@ type KeluarMasuk() =
     member val Id: int = 0 with get, set
 
     member val Amount: double = 0.0 with get, set
-
+    member val DateTrx: DateTime = DateTime.Now with get, set
+    member val NoCek: string = "" with get, set
+    member val Pajak: double = 0.0 with get, set
