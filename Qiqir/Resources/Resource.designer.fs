@@ -23,10 +23,10 @@ namespace Qiqir
     #nowarn "51" // address-of operator can occur in the code
     #nowarn "1183" // unused 'this' reference
     
-    exception ReturnException917348e3648b47b597ec5fcb024e975e of obj
-    exception ReturnNoneException917348e3648b47b597ec5fcb024e975e
+    exception ReturnException5527ce97a4124304bf741714825c303f of obj
+    exception ReturnNoneException5527ce97a4124304bf741714825c303f
     [<AutoOpen>]
-    module FuncConvertFinalOverload917348e3648b47b597ec5fcb024e975e =
+    module FuncConvertFinalOverload5527ce97a4124304bf741714825c303f =
       // This extension member adds to the FuncConvert type and is the last resort member in the method overloading rules. 
       type global.Microsoft.FSharp.Core.FuncConvert with
           /// A utility function to convert function values from tupled to curried form

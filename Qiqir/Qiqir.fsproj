@@ -164,9 +164,19 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5'">
       <PropertyGroup>
-        <__paket__SQLitePCL_raw_basic_targets>netcore45\SQLitePCL.raw_basic</__paket__SQLitePCL_raw_basic_targets>
+        <__paket__SQLitePCL_raw_basic_targets>win8\SQLitePCL.raw_basic</__paket__SQLitePCL_raw_basic_targets>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5.1'">
+      <PropertyGroup>
+        <__paket__SQLitePCL_raw_basic_targets>win81\SQLitePCL.raw_basic</__paket__SQLitePCL_raw_basic_targets>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
+      <PropertyGroup>
+        <__paket__SQLitePCL_raw_basic_targets>net35\SQLitePCL.raw_basic</__paket__SQLitePCL_raw_basic_targets>
       </PropertyGroup>
     </When>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0')">
@@ -206,10 +216,28 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5'">
       <ItemGroup>
         <Reference Include="SQLitePCL.raw">
-          <HintPath>..\packages\SQLitePCL.raw_basic\lib\netcore45\SQLitePCL.raw.dll</HintPath>
+          <HintPath>..\packages\SQLitePCL.raw_basic\lib\win8\SQLitePCL.raw.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5.1'">
+      <ItemGroup>
+        <Reference Include="SQLitePCL.raw">
+          <HintPath>..\packages\SQLitePCL.raw_basic\lib\win81\SQLitePCL.raw.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="SQLitePCL.raw">
+          <HintPath>..\packages\SQLitePCL.raw_basic\lib\net35\SQLitePCL.raw.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
