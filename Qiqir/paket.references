@@ -3,3 +3,4 @@ FSharp.Core
 NodaTime
 SqliteExtension
 SQLiteNetExtensions
+Mono.Data.Sqlite.Portable
