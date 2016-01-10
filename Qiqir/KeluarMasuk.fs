@@ -7,9 +7,22 @@ open SQLiteNetExtensions.Attributes
 open SQLiteNetExtensions.Extensions
 
 (*
-    Create a more modular Manager_ data type.
-    So I don't have to write many things out.
+    Manager TO DO:
+    Add CreateTable.
 *)
+
+type Manager () =
+    member this.GetConnection (): SQLiteConnection =
+        let folder: string = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+        let fullPath: string = IO.Path.Combine(folder, "qiqir.db3")
+        let conn: SQLiteConnection = new SQLiteConnection(fullPath, true)
+        conn
+
+    member this.connection = this.GetConnection ()
+    member this.Add (thing) = this.connection.Insert(thing)
+    member this.Update (thing) = this.connection.Update(thing)
+    member this.Delete (thing) = this.connection.Delete(thing)
+
 [<Table("metode")>]
 type Metode () =
     [<PrimaryKey>]
@@ -19,21 +32,10 @@ type Metode () =
     member val NamaMetode: string = "" with get, set
 
 type ManagerMetode () =
-    member this.GetConnection (): SQLiteConnection =
-        let folder: string = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-        let fullPath: string = IO.Path.Combine(folder, "qiqir.db3")
-        let conn: SQLiteConnection = new SQLiteConnection(fullPath, true)
-        let tableKM: int = conn.CreateTable<Metode>()
-        conn
-    
-    member this.connection: SQLiteConnection = this.GetConnection ()
-
-    member this.GetMetodes () = this.connection.Table<Metode>().ToList
+    inherit Manager ()
+    member this.GetMetodes () = base.connection.Table<Metode>().ToList
     member this.GetMetode (idMetode: int) = this.connection.Find<Metode>(idMetode)
 
-    member this.AddMetode (met) = NotImplementedException
-    member this.UpdateMetode (metode) = this.connection.Update(metode)
-    member this.DeleteMetode (metode) = this.connection.Delete(metode)
 
 [<Table("penerima")>]
 type Penerima () =
@@ -41,6 +43,9 @@ type Penerima () =
     [<AutoIncrement>]
     member val IdPenerima: int = 0 with get, set
     member val NamaPenerima: string = "" with get, set
+
+type MetodePenerima () =
+    inherit Metode () 
 
 [<Table("kategori")>]
 type Kategori () =
