@@ -1,4 +1,6 @@
 source https://www.nuget.org/api/v2
 nuget FSharp.Core
 nuget NodaTime
+nuget SqliteExtension
+nuget SQLiteNetExtensions
 nuget sqlite-net-pcl

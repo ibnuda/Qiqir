@@ -23,10 +23,10 @@ namespace Qiqir
     #nowarn "51" // address-of operator can occur in the code
     #nowarn "1183" // unused 'this' reference
     
-    exception ReturnException5527ce97a4124304bf741714825c303f of obj
-    exception ReturnNoneException5527ce97a4124304bf741714825c303f
+    exception ReturnExceptiona34fe144287c4fa9a856dee898f39282 of obj
+    exception ReturnNoneExceptiona34fe144287c4fa9a856dee898f39282
     [<AutoOpen>]
-    module FuncConvertFinalOverload5527ce97a4124304bf741714825c303f =
+    module FuncConvertFinalOverloada34fe144287c4fa9a856dee898f39282 =
       // This extension member adds to the FuncConvert type and is the last resort member in the method overloading rules. 
       type global.Microsoft.FSharp.Core.FuncConvert with
           /// A utility function to convert function values from tupled to curried form
@@ -39,7 +39,8 @@ namespace Qiqir
             static do Android.Runtime.ResourceIdManager.UpdateIdValues()
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
             static member UpdateIdValues  () =
-                ()
+                global.SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName <- Resource_String.ApplicationName
+                global.SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello <- Resource_String.Hello
 
 
     

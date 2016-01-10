@@ -1,3 +1,5 @@
 sqlite-net-pcl
 FSharp.Core
 NodaTime
+SqliteExtension
+SQLiteNetExtensions
