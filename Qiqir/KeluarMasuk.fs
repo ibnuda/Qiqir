@@ -99,12 +99,12 @@ type ManagerKeluarMasuk () =
     member this.GetKeluarMasuks () = this.connection.Table<KeluarMasuk>().ToList
     member this.GetKeluarMasuk (idKM: int) = this.connection.Find<KeluarMasuk>(idKM)
 
-    member this.AddKeluarMasuk (trx) =
         (*  Something like this,
+    member this.AddKeluarMasuk (trx) =
             let keluarMasuk = new KeluarMasuk(trx)
             let recordsAffected = this.connection.Insert(keluarMasuk)
-            keluarMasuk *)
         NotImplementedException
+            keluarMasuk *)
 
     member this.UpdateKeluarMasuk (keluarMasuk) = this.connection.Update(keluarMasuk)
 
